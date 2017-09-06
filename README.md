@@ -33,7 +33,7 @@ import React from 'react'
 import Tweet from 'react-tweet'
 
 const tweetData = {
-  id: 'XXX',
+  id_str: 'XXX',
   user: {
     name: 'XXX',
     screen_name: 'XXX',

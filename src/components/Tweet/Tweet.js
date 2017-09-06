@@ -42,7 +42,7 @@ class Tweet extends React.Component {
 
   render () {
     const {modalActive, modalIndex} = this.state
-    let {data} = this.props, isRT = false
+    let {data, newTab} = this.props, isRT = false
     let MediaComponent = null, QuoteComponent = null
 
     // use retweet as data if its a RT
@@ -74,7 +74,7 @@ class Tweet extends React.Component {
           <Text data={data} />
           {MediaComponent}
           {QuoteComponent}
-          <Footer data={data} />
+          <Footer data={data} newTab={newTab} />
         </div>
         {modalActive ? <Modal data={data} modalIndex={modalIndex} /> : null}
       </div>
@@ -88,14 +88,16 @@ Tweet.childContextTypes = {
 }
 
 Tweet.propTypes = {
-  'data': PropTypes.object
+  'data': PropTypes.object,
+  'newTab': PropTypes.bool
 }
 
 Tweet.defaultProps = {
   'data': {
     'entities': {},
     'user': {}
-  }
+  },
+  'newTab': true
 }
 
 export default Tweet
